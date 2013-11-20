@@ -1,4 +1,3 @@
-
 ;; Customization
 
 ;; Display Mark
@@ -16,7 +15,7 @@
     (comment-or-uncomment-region (line-beginning-position) (line-end-position))
     )
   )
- 
+
 (global-set-key "\M-;" 'comment-or-uncomment-region-or-line)
 ;; (global-set-key "\M-;" )
 ;; =================================================================
@@ -41,24 +40,34 @@
 ;; =================================================================
 
 (global-linum-mode 1)
+(global-whitespace-mode 1)
 (setq linum-format "%5d")
 (show-paren-mode)
-
-;; make the modeline high contrast
-(setq solarized-high-contrast-mode-line t)
-;; make the fringe stand out from the background
-(setq solarized-distinct-fringe-background t)
-
-;; load the awesome theme
-(load-theme 'solarized-dark t)
 
 ;; ==== Ediff stuff
 (setq ediff-split-window-function 'split-window-horizontally)
 
-;; ==== Nuke the ugly scroll bar
-(scroll-bar-mode -1)
-(fringe-mode '(2 . 0))
-(set-face-attribute 'default nil :font "Consolas")
-(set-face-attribute 'default nil :height 165)
-;; (set-fringe-style 'left-only t)
+;; If in graphics mode
+(if (display-graphic-p)
+    (progn
+      ;; if graphic mode
 
+      (setq linum-format "%5d\u2503 ")
+      ;; make the modeline high contrast
+      (setq solarized-high-contrast-mode-line t)
+      ;; make the fringe stand out from the background
+      (setq solarized-distinct-fringe-background t)
+
+      ;; load the awesome theme
+      (load-theme 'solarized-dark t)
+
+      ;; ==== Nuke the ugly scroll bar
+      (scroll-bar-mode -1)
+      (fringe-mode '(2 . 0))
+      (set-face-attribute 'default nil :font "Consolas")
+      (set-face-attribute 'default nil :height 165)
+      ;; (set-fringe-style 'left-only t)
+      )
+  ;; else if terminal mode
+  (setq linum-format "%5d\u2503 ")
+  )
