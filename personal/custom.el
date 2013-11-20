@@ -1,4 +1,5 @@
 ;; Customization
+(server-start)
 
 ;; Display Mark
 (transient-mark-mode)
@@ -41,7 +42,7 @@
 
 (global-linum-mode 1)
 (global-whitespace-mode 1)
-(setq linum-format "%5d")
+
 (show-paren-mode)
 
 ;; ==== Ediff stuff
@@ -52,7 +53,7 @@
     (progn
       ;; if graphic mode
 
-      (setq linum-format "%5d\u2503 ")
+      (setq linum-format "%5d ")
       ;; make the modeline high contrast
       (setq solarized-high-contrast-mode-line t)
       ;; make the fringe stand out from the background
@@ -70,4 +71,5 @@
       )
   ;; else if terminal mode
   (setq linum-format "%5d\u2503 ")
+
   )
