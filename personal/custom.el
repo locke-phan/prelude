@@ -1,5 +1,5 @@
 ;; Customization
-(server-start)
+(disable-theme 'zenburn)
 
 ;; Display Mark
 (transient-mark-mode)
@@ -52,7 +52,7 @@
 (if (display-graphic-p)
     (progn
       ;; if graphic mode
-
+      (server-start)
       (setq linum-format "%5d ")
       ;; make the modeline high contrast
       (setq solarized-high-contrast-mode-line t)
@@ -60,7 +60,7 @@
       (setq solarized-distinct-fringe-background t)
 
       ;; load the awesome theme
-      (load-theme 'solarized-dark t)
+      (load-theme 'solarized-light t)
 
       ;; ==== Nuke the ugly scroll bar
       (scroll-bar-mode -1)
@@ -70,6 +70,6 @@
       ;; (set-fringe-style 'left-only t)
       )
   ;; else if terminal mode
-  (setq linum-format "%5d\u2503 ")
+  (setq linum-format "%5d\u2503  ")
 
   )
