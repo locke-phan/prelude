@@ -47,7 +47,9 @@
     guru-mode helm helm-projectile ido-ubiquitous
     key-chord magit move-text rainbow-mode
     smartparens smex undo-tree
-    volatile-highlights projectile color-theme-solarized)
+    volatile-highlights projectile
+    ;; Custom packages
+    solarized-theme cmake-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -127,7 +129,10 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.scss\\'" scss-mode scss-mode)
     ("\\.slim\\'" slim-mode slim-mode)
     ("\\.textile\\'" textile-mode textile-mode)
-    ("\\.yml\\'" yaml-mode yaml-mode)))
+    ("\\.yml\\'" yaml-mode yaml-mode)
+    ;; Custom
+    ("\\CMakeLists.txt\\'" cmake-mode cmake-mode)
+    ))
 
 ;; markdown-mode doesn't have autoloads for the auto-mode-alist
 ;; so we add them manually if it's already installed
