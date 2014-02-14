@@ -19,7 +19,6 @@
 
 (global-set-key "\M-;" 'comment-or-uncomment-region-or-line)
 
-
 ;; =================================================================
 (global-set-key (kbd "<f2>") 'undo-tree-undo)
 (global-set-key (kbd "<f3>") 'undo-tree-redo)
@@ -70,12 +69,15 @@
       (scroll-bar-mode -1)
       (fringe-mode '(2 . 0))
       (set-face-attribute 'default nil :font "Consolas")
-      (set-face-attribute 'default nil :height 165)
+      (set-face-attribute 'default nil :height 145)
       ;; (set-fringe-style 'left-only t)
+      ;; Full-screen
+      (custom-set-variables
+       '(initial-frame-alist (quote ((fullscreen . maximized)))))
       )
+
   ;; else if terminal mode
   (setq linum-format "%5d\u2503 ")
-
   )
 ;; (custom-set-faces (if (not window-system) '(default ((t (:background "nil"))))))
 ;; (load-theme 'solarized-light t)
