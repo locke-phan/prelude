@@ -49,7 +49,7 @@
     smartparens smex undo-tree
     volatile-highlights projectile
     ;; Custom packages
-    solarized-theme cmake-mode)
+    solarized-theme cmake-mode powerline)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()

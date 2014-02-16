@@ -23,6 +23,16 @@
 (global-set-key (kbd "<f2>") 'undo-tree-undo)
 (global-set-key (kbd "<f3>") 'undo-tree-redo)
 
+;; (global-set-key (kbd "C-u") 'left-char)
+;; (global-set-key (kbd "C-o") 'right-char)
+
+;; (global-set-key (kbd "M-u") 'left-word)
+;; (global-set-key (kbd "M-o") 'right-word)
+
+(global-set-key (kbd "<menu>") 'nil)
+
+
+;; (global-set-key (kbd "M") 'right-word)
 
 ;; Move by defun with meta-up and meta-down
 (define-key input-decode-map "\e\eOA" [(meta up)])
@@ -38,9 +48,14 @@
   (interactive)
   (forward-line 3))
 
+
 (global-set-key [(meta up)] 'cm-fast-step-upward)
 (global-set-key [(meta down)] 'cm-fast-step-downward)
 
+;; =================================================================
+;; ==================== Unset key-bindings =========================
+;; (global-set-key (kbd "<up>") 'nil)
+;; (global-set-key (kbd "<down>") 'nil)
 ;; =================================================================
 
 (global-linum-mode 1)
@@ -79,5 +94,9 @@
   ;; else if terminal mode
   (setq linum-format "%5d\u2503 ")
   )
+
+(require 'powerline)
+(powerline-default-theme)
+
 ;; (custom-set-faces (if (not window-system) '(default ((t (:background "nil"))))))
 ;; (load-theme 'solarized-light t)
