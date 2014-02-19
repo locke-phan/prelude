@@ -84,7 +84,7 @@
       (scroll-bar-mode -1)
       (fringe-mode '(2 . 0))
       (set-face-attribute 'default nil :font "Consolas")
-      (set-face-attribute 'default nil :height 145)
+      (set-face-attribute 'default nil :height 165)
       ;; (set-fringe-style 'left-only t)
       ;; Full-screen
       (custom-set-variables
@@ -95,8 +95,17 @@
   (setq linum-format "%5d\u2503 ")
   )
 
-(require 'powerline)
-(powerline-default-theme)
+(load "~/.emacs.d/personal/packages/powerline/powerline.el")
+(load "~/.emacs.d/personal/packages/powerline/powerline-separators.el")
+(load "~/.emacs.d/personal/packages/powerline/powerline-themes.el")
 
-;; (custom-set-faces (if (not window-system) '(default ((t (:background "nil"))))))
-;; (load-theme 'solarized-light t)
+;; Disable prelude key-chord
+(key-chord-mode -1)
+
+(require 'evil)
+(evil-mode 1)
+
+(require 'powerline)
+(powerline-evil-theme)
+
+;; (require 'dirtree)
