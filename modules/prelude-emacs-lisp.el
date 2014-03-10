@@ -72,6 +72,8 @@ Start `ielm' if it's not already running."
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (run-hooks 'prelude-emacs-lisp-mode-hook)))
 
+(add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
+
 ;; ielm is an interactive Emacs Lisp shell
 (defun prelude-ielm-mode-defaults ()
   "Sensible defaults for `ielm'."
@@ -89,6 +91,11 @@ Start `ielm' if it's not already running."
   '(diminish 'rainbow-mode))
 (eval-after-load "eldoc"
   '(diminish 'eldoc-mode))
+
+(eval-after-load "ielm"
+  '(progn
+     (define-key ielm-map (kbd "M-(") (prelude-wrap-with "("))
+     (define-key ielm-map (kbd "M-\"") (prelude-wrap-with "\""))))
 
 ;; enable elisp-slime-nav-mode
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))

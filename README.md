@@ -225,10 +225,10 @@ You'd probably do well to put a few aliases in your `.zshrc` (or
 `.bashrc`):
 
 ```bash
-alias e=emacsclient -t
-alias ec=emacsclient -c
-alias vim=emacsclient -t
-alias vi=emacsclient -t
+alias e='emacsclient -t'
+alias ec='emacsclient -c'
+alias vim='emacsclient -t'
+alias vi='emacsclient -t'
 ```
 
 The last two aliases are helpful if you're used to editing files from
@@ -293,7 +293,7 @@ Keybinding         | Description
 <kbd>C-c r</kbd> | Rename the currently visited file and buffer.
 <kbd>C-c t</kbd> | Open a terminal emulator (`ansi-term`).
 <kbd>C-c k</kbd> | Kill all open buffers except the one you're currently in.
-<kbd>C-c h</kbd> | Open Helm (a useful means of navigating your buffers and project files).
+<kbd>C-c h</kbd> | Open Helm (available if you've enabled the `prelude-helm` module).
 <kbd>C-c +</kbd> | Increment integer at point.
 <kbd>C-c -</kbd> | Decrement integer at point.
 <kbd>Super-r</kbd> | Recent files
@@ -357,6 +357,8 @@ If you ever forget any of Projectile's keybindings just do a:
 
 #### Key-chords
 
+**Key-chords are available only when the `prelude-key-chord` module has been enabled.**
+
 Keybinding         | Description
 -------------------|----------------------------------------------
 <kbd>jj</kbd>      | Jump to the beginning of a word(`ace-jump-word-mode`)
@@ -364,6 +366,8 @@ Keybinding         | Description
 <kbd>jl</kbd>      | Jump to the beginning of a line(`ace-jump-line-mode`)
 <kbd>JJ</kbd>      | Jump back to previous buffer(`prelude-switch-to-previous-buffer`)
 <kbd>uu</kbd>      | View edits as a tree(`undo-tree-visualize`)
+<kbd>xx</kbd>      | Executed extended command(`execute-extended-command`)
+<kbd>yy</kbd>      | Browse the kill ring(`browse-kill-ring`)
 
 ##### Disabling key-chords
 
@@ -387,7 +391,7 @@ If you're an `evil-mode` user you'll probably do well to disable `key-chord-mode
 The default Prelude installation comes with a bare minimum of
 functionality. It will however install add-ons for various programming
 languages and frameworks on demand. For instance - if you try to open
-a `.clj` file `clojure-mode`, `nrepl.el` and prelude's enhanced Lisp
+a `.clj` file `clojure-mode`, `cider` and Prelude's enhanced Lisp
 configuration will be installed automatically for you.
 
 You can, of course, install anything you wish manually as well.
@@ -440,6 +444,12 @@ If you require just a single package you can also use:
 ```lisp
 (prelude-require-package 'some-package)
 ```
+
+#### Preloading personal config
+
+Sometimes you might want to load code before Prelude has started loading. Prelude will automatically preload all
+Emacs Lisp files in your `personal/preload` directory. Note that at this point you can't using anything from
+Prelude, except a few variables like `prelude-dir`, etc (since nothing is yet loaded).
 
 #### Disabling whitespace-mode
 
@@ -524,13 +534,18 @@ afterwards.
 This is not a bug - it's a feature! I firmly believe that the one true
 way to use Emacs is by using it the way it was intended to be used (as
 far as navigation is concerned at least). That's why I've disabled all
-movement commands with arrows (and keys like page up, page down, etc) - to prevent you from being tempted to
-use them.
+movement commands with arrows (and keys like page up, page down,
+etc) - to prevent you from being tempted to use them.
 
-If you'd still like to use the arrow keys just invoke `M-x
-guru-mode` to enable them for the duration of your
-current Emacs session or add the following snippet to your
-personal Emacs customization to enable them permanently:
+If you'd like to be able to use the arrow keys (but still be reminded of
+the alternatives) put this in your personal config:
+
+```lisp
+(setq guru-warn-only t)
+```
+
+To disable `guru-mode` completely add the following snippet to your
+personal Emacs config:
 
 ```lisp
 (setq prelude-guru nil)
@@ -575,12 +590,10 @@ time. This situation will probably improve over time.
 
 ## Share the knowledge
 
-[WikEmacs](http://wikemacs.org) collects useful resources for working
+[EmacsWiki](http://emacswiki.org) collects useful resources for working
 with GNU Emacs. Please, take the time to peruse and improve them as
 you accumulate knowledge about Emacs. Prelude makes this especially
 easy, since it bundles
-[MediaWiki support](http://wikemacs.org/wiki/Mediawiki.el) + the
-settings required to access WikEmacs right away.
 
 ## Known issues
 

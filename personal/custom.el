@@ -1,9 +1,10 @@
-(prelude-require-package
- '(
-   solarized-theme
+;; Custom packages
+(prelude-require-packages
+ '(solarized-theme
    cmake-mode
-   evil-mode
+   evil
    ))
+
 ;; Customization
 (disable-theme 'zenburn)
 
