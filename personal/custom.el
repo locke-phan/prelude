@@ -1,3 +1,9 @@
+(prelude-require-package
+ '(
+   solarized-theme
+   cmake-mode
+   evil-mode
+   ))
 ;; Customization
 (disable-theme 'zenburn)
 
@@ -108,4 +114,8 @@
 (require 'powerline)
 (powerline-evil-theme)
 
-;; (require 'dirtree)
+;; Load keymaps
+(expand-file-name "keymaps.el" keymaps-file)
+(when (file-exists-p keymaps-file)
+  (message "Loading custom keymaps in %s..." keymaps-file)
+  (mapc 'load (directory-files keymaps-file 't "*.el$")))
