@@ -91,7 +91,7 @@
       (scroll-bar-mode -1)
       (fringe-mode '(2 . 0))
       (set-face-attribute 'default nil :font "Consolas")
-      (set-face-attribute 'default nil :height 165)
+      (set-face-attribute 'default nil :height 198)
       ;; (set-fringe-style 'left-only t)
       ;; Full-screen
       (custom-set-variables
@@ -115,8 +115,22 @@
 (require 'powerline)
 (powerline-evil-theme)
 
-;; Load keymaps
-(expand-file-name "keymaps.el" keymaps-file)
-(when (file-exists-p keymaps-file)
-  (message "Loading custom keymaps in %s..." keymaps-file)
-  (mapc 'load (directory-files keymaps-file 't "*.el$")))
+(load "~/.emacs.d/personal/keymaps.el")
+(evil-mode -1)
+
+;==== Spaces only indentation =====================================
+(setq c-default-style "linux"
+      c-basic-offset 4)
+(setq-default tab-width 4)
+;; (custom-set-variables '(tab-width 4))
+(setq sgml-basic-offset 4)
+(setq-default indent-tabs-mode nil)
+;==================================================================
+
+;==== Don't indent if we're in a c++ namespace ====================
+(defconst my-cc-style
+  '("cc-mode"
+    (c-offsets-alist . ((innamespace . [0])))))
+
+(c-add-style "my-cc-mode" my-cc-style)
+;==================================================================

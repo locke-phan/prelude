@@ -22,10 +22,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;; Custom movement
 (define-key evil-normal-state-map "\C-e" 'move-end-of-line)
-
 (define-key evil-normal-state-map "\C-j" 'forward-paragraph)
 (define-key evil-normal-state-map "\C-k" 'backward-paragraph)
-;; (define-key evil-normal-state-map "\C-h" 'move-end-of-line)
+(define-key evil-normal-state-map "\S-j" 'windmove-left)
+(define-key evil-normal-state-map "\S-k" 'windmove-right)
+
+(define-key evil-normal-state-map "q" 'evil-backward-word-begin)
+;; (define-key evil-normal-state-map "q" 'evil-backward-word-begin)
 ;; (define-key evil-normal-state-map "\C-l" 'move-end-of-line)
 
 (define-key evil-normal-state-map "\M-j" 'cm-fast-step-downward)
@@ -38,7 +41,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; (define-key evil-insert-state-map "\C-h" 'move-end-of-line)
 ;; (define-key evil-insert-state-map "\C-l" 'move-end-of-line)
 
-(define-key evil-insert-state-map "\S-left" 'windmove-left)
-(define-key evil-insert-state-map "\S-right" 'windmove-right)
-(define-key evil-normal-state-map "\S-left" 'windmove-left)
-(define-key evil-normal-State-map "\S-right" 'windmove-right)
+;; (define-key evil-insert-state-map "\S-j" 'windmove-left)
+;; (define-key evil-insert-state-map "\S-k" 'windmove-right)
+(define-key evil-insert-state-map "\C-e" 'move-end-of-line)
+
+;; (define-key evil-normal-state-map "\S-left" 'windmove-left)
+;; (define-key evil-normal-State-map "\S-right" 'windmove-right)
