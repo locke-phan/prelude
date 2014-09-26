@@ -1,9 +1,8 @@
 ;; Custom packages
-(prelude-require-packages
- '(solarized-theme
-   cmake-mode
-   evil
-   ))
+;; (prelude-require-packages
+;;  '(solarized-theme
+;;    cmake-mode
+;;    ))
 
 ;; Customization
 (disable-theme 'zenburn)
@@ -90,8 +89,8 @@
       ;; ==== Nuke the ugly scroll bar
       (scroll-bar-mode -1)
       (fringe-mode '(2 . 0))
-      (set-face-attribute 'default nil :font "Consolas")
-      (set-face-attribute 'default nil :height 198)
+      ;; (set-face-attribute 'default nil :font "Consolas")
+      (set-face-attribute 'default nil :height 70)
       ;; (set-fringe-style 'left-only t)
       ;; Full-screen
       (custom-set-variables
@@ -102,21 +101,21 @@
   (setq linum-format "%5d\u2503 ")
   )
 
-(load "~/.emacs.d/personal/packages/powerline/powerline.el")
-(load "~/.emacs.d/personal/packages/powerline/powerline-separators.el")
-(load "~/.emacs.d/personal/packages/powerline/powerline-themes.el")
+;; (load "~/.emacs.d/personal/packages/powerline/powerline.el")
+;; (load "~/.emacs.d/personal/packages/powerline/powerline-separators.el")
+;; (load "~/.emacs.d/personal/packages/powerline/powerline-themes.el")
 
 ;; Disable prelude key-chord
-(key-chord-mode -1)
+;; (key-chord-mode -1)
 
-(require 'evil)
-(evil-mode 1)
+;; (require 'evil)
+;; (evil-mode 1)
 
-(require 'powerline)
-(powerline-evil-theme)
+;; (require 'powerline)
+;; (powerline-evil-theme)
 
-(load "~/.emacs.d/personal/keymaps.el")
-(evil-mode -1)
+;; (load "~/.emacs.d/personal/keymaps.el")
+;; (evil-mode -1)
 
 ;==== Spaces only indentation =====================================
 (setq c-default-style "linux"
