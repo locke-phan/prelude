@@ -1,14 +1,19 @@
 ;; Custom packages
-;; (prelude-require-packages
-;;  '(solarized-theme
-;;    cmake-mode
-;;    ))
+(prelude-require-packages
+ '(
+   ;; solarized-theme
+   cmake-mode
+   ))
 
 ;; Customization
 (disable-theme 'zenburn)
 
 ;; Display Mark
 (transient-mark-mode)
+
+;; Use wombat theme
+(load-theme 'wombat)
+
 
 ;; Auto Revert/Update buffer
 (global-auto-revert-mode)
@@ -37,6 +42,7 @@
 
 (global-set-key (kbd "<menu>") 'nil)
 
+(setq prelude-guru nil)
 
 ;; (global-set-key (kbd "M") 'right-word)
 
