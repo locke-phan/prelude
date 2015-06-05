@@ -3,6 +3,7 @@
  '(
    ;; solarized-theme
    cmake-mode
+   flycheck
    ))
 
 ;; Customization
@@ -104,7 +105,7 @@
       )
 
   ;; else if terminal mode
-  (setq linum-format "%5d\u2503 ")
+  (setq linum-format "%5d| ")
   )
 
 ;; (load "~/.emacs.d/personal/packages/powerline/powerline.el")
