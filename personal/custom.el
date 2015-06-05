@@ -133,6 +133,9 @@
 (setq-default indent-tabs-mode nil)
 ;==================================================================
 
+;; Enable global flycheck mode
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ;==== Don't indent if we're in a c++ namespace ====================
 (defconst my-cc-style
   '("cc-mode"
